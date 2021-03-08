@@ -16,26 +16,27 @@ def get_journeys(departure_point, arrival_point, departure_date, region):
 
     url_final = ROOT_URL+region+mode+starting_from+'&'+going_to+'&'+at_time
 
-    data = requests.get(url=url_final, auth=(get_tokens('navitia'), ''))
+    data = requests.get(url=url_final, auth=(get_tokens('navitia'), '')) #url = recherche vers navitia et auth = notre username/pwd
 
     print(url_final)
 
 
 
-    data = data.json()["journeys"][0]
+    data = data.json()["journeys"][0] #on stock dans la variable data la partie du json intéréssante pour la suite du processus
 
+    #je crée un objet journey et je lui donne les données json
     journey = Journey(
-        data["sections"][1]["from"]["name"], 
-        data["sections"][1]["to"]["name"], 
-        data["requested_date_time"], 
-        data["departure_date_time"], 
-        data["arrival_date_time"], 
-        data["duration"], 
-        data["sections"][1]["display_informations"]["physical_mode"],
-        data["sections"][1]["display_informations"]["name"],
-        data["sections"][1]["display_informations"]["network"],
-        data["sections"][1]["display_informations"]["trip_short_name"],
-        data["sections"][1]["stop_date_times"])
+        data["sections"][1]["from"]["name"],  #je récupère le nom du point de départ
+        data["sections"][1]["to"]["name"],  #je récupère le nom du point d'arrivée
+        data["requested_date_time"], #je récupère la date demandé par l'utilisateur
+        data["departure_date_time"], #je récupère la date de départ du trajet
+        data["arrival_date_time"], #je récupère la date d arrivée du trajet
+        data["duration"], #je récupère le temps du trajet
+        data["sections"][1]["display_informations"]["physical_mode"], #je récupère le type de transport en commun
+        data["sections"][1]["display_informations"]["name"],  #je récupère le nom du trajet
+        data["sections"][1]["display_informations"]["network"], #je récupère le nom du réseau de transport
+        data["sections"][1]["display_informations"]["trip_short_name"], #je récupère l'ID du trajet
+        data["sections"][1]["stop_date_times"]) #je récupère le tableau de tout les arrets du trajet
 
     return journey
 

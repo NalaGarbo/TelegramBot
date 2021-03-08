@@ -29,7 +29,7 @@ def auto_complete_dep(update: Update, context: CallbackContext):
     list_buttons = []
 
     if not dict:
-        context.bot.sendMessage(chat_id=update.effective_chat.id, text='Vazy tu sais pas écrire')
+        context.bot.sendMessage(chat_id=update.effective_chat.id, text='Désolé je ne comprend pas')
         return DEPARTURE
 
     #remplissage de la liste de bouttons avec une instance de la classe InlineKeyboardButton pour chaque item du dictionnaire
