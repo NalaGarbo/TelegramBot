@@ -2,7 +2,7 @@
 
 ### Procédure d'installation 
 
-Pour utiliser Christopher merci d'installer l'application Telegram ici https://telegram.org
+Pour utiliser Christopher merci d'installer l'application Telegram ici https://telegram.org.
 Par la suite le lien de Christopher se trouve ici : t.me/christopher13_bot
 
 
