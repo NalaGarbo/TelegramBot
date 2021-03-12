@@ -1,5 +1,5 @@
 def get_tokens(serviceName):
-    telegramToken = 'your token
+    telegramToken = 'your token'
     navitiaToken = 'your token'
 
     if serviceName == 'telegram':
